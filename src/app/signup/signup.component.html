@@ -1,0 +1,119 @@
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0">
+
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Sign up with credentials</small>
+              </div>
+
+              <form role="form" [formGroup]="registerForm">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="First name" type="text" formControlName="firstname">
+                  </div>
+                  <div *ngIf="firstname.touched && firstname.invalid" >
+                    <small *ngIf="firstname.errors.required" class="text-danger">* Required field !</small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="last name" type="text" formControlName="lastname">
+                  </div>
+                  <div *ngIf="lastname.touched && lastname.invalid" >
+                    <small *ngIf="lastname.errors.required" class="text-danger">* Required field !</small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Account name" type="text" formControlName="accountname">
+                  </div>
+                  <div *ngIf="accountname.touched && accountname.invalid" >
+                    <small *ngIf="accountname.errors.required" class="text-danger">* Required field !</small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Email" type="email" formControlName="email">
+                    </div>
+                    <div *ngIf="email.touched && email.invalid" >
+                      <small *ngIf="email.errors.required" class="text-danger"> * Required field !</small>
+                      <small *ngIf="email.errors.email" class="text-danger"> * Invalid email !<br></small>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Password" type="password" formControlName="password">
+                  </div>
+                  <div *ngIf="password.touched && password.invalid" >
+                    <small *ngIf="password.errors.required" class="text-danger"> * Required field !</small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Retype password" type="password"
+                      formControlName="repassword">
+                  </div>
+                  <div *ngIf="repassword.touched && repassword.invalid" >
+                    <small *ngIf="repassword.errors.required" class="text-danger"> * Required field !</small>
+                  </div>
+                  <div *ngIf=" repassword.valid &&  repassword.value != password.value"  class="text-danger">
+                    * The password entered does not match!
+                  </div>
+                </div>
+
+                <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                      <label class="custom-control-label" for="customCheckRegister">
+                        <span>I agree with the
+                          <a href="javascript:void(0)">Privacy Policy </a>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="button" [disabled]="registerForm.pristine || registerForm.invalid || repassword.value != password.value"  class="btn btn-primary mt-4" (click)="register()">Create account</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

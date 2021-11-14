@@ -1,0 +1,220 @@
+<main>
+  <div (click)="scrolltop()" class="icon icon-lg icon-shape icon-shape-primary bg-white shadow rounded-circle "
+    id="icon">
+    <i class="fa fa-arrow-circle-up" id="ico"></i>
+  </div>
+
+  <div class="position-relative">
+    <!-- Hero for FREE version -->
+    <section class="section section-lg section-hero section-shaped">
+      <!-- Background circles -->
+      <div class="shape shape-style-1 shape-primary">
+        <span class="span-150"></span>
+        <span class="span-50"></span>
+        <span class="span-50"></span>
+        <span class="span-75"></span>
+        <span class="span-100"></span>
+        <span class="span-75"></span>
+        <span class="span-50"></span>
+
+      </div>
+
+      <div class="container shape-container d-flex align-items-center py-lg">
+        <div class="col px-0">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-7 text-center">
+              <h1 class="text-white">Welcome to E-congress !
+              </h1>
+              <p class="lead text-white">
+                Here you can plan symposia, workshops <br> or scientific conferences
+
+              </p>
+              <div class="btn-wrapper mt-5">
+                <a href="#creat" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
+                  <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+                  <span class="btn-inner--text">create a new event </span>
+                </a>
+                <button class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0" (click)="scrollist()">
+                  <span class="btn-inner--icon"><i class="fa fa-eye"></i></span>
+                  <span class="btn-inner--text">
+                    <span class="text-warning">consult </span>our events</span>
+                </button>
+              </div>
+              <div class="mt-5">
+                <h4 class="text-white font-weight-italic mb-0 mr-4"> International scientific congress management
+                  platform.</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container px-1 px-md-4 py-5 mx-auto">
+      <div class="h1 text-center " id="pageHeaderTitle">How to use this platform   </div>
+      <div class="card">
+          <div class="row d-flex justify-content-between px-3 top">
+              <div class="d-flex">
+                  <h5>Documentation <span class="text-primary font-weight-bold">#E-Congress</span></h5>
+              </div>
+              <div class="d-flex flex-column text-sm-right">
+                  <p class="mb-0"><span class="font-weight-normal">{{ time | date: 'hh:mm:ss a' }}
+                  </span></p>
+                  <p>The : <span class="font-weight-bold">{{ time | date: 'MM/dd/yyyy' }}</span></p>
+              </div>
+          </div> <!-- Add class 'active' to progress -->
+          <div class="row d-flex justify-content-center">
+              <div class="col-12">
+                  <ul id="progressbar" class="text-center">
+                      <li class="active step0"></li>
+                      <li class="active step0"></li>
+                      <li class="active step0"></li>
+                      <li class="step0"></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="row justify-content-between top">
+              <div class="row d-flex icon-content"> 
+                  <div class="d-flex flex-column">
+                      <p class="font-weight-bold">Presentation</p>
+                  </div>
+              </div>
+              <div class="row d-flex icon-content"> 
+                  <div class="d-flex flex-column">
+                      <p class="font-weight-bold">Consult Events</p>
+                  </div>
+              </div>
+              <div class="row d-flex icon-content"> 
+                  <div class="d-flex flex-column">
+                      <p class="font-weight-bold">Create new event</p>
+                  </div>
+              </div>
+              <div class="row d-flex icon-content"> 
+                  <div class="d-flex flex-column">
+                      <p class="font-weight-bold">Additional informations</p>
+                  </div>
+              </div>
+          </div>
+      </div> 
+  </div>
+
+    <section class="section section-lg">
+      <div class="container">
+ 
+        <div class="h1 text-center " id="pageHeaderTitle">General Presentation   </div>
+        <div class="row row-grid align-items-center">
+          <div class="col-md-6 order-md-2">
+            <img src="./assets/img/ill/ill-2.svg" class="img-fluid floating">
+          </div>
+          <div class="col-md-6 order-md-1">
+            <div class="pr-md-5">
+              <div class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle mb-5">
+                <i class="fa fa-lightbulb-o"></i>
+              </div>
+              <h3>This platform facilitates the various stages of a conference, from the reception of communications
+                to the automatic editing of proceedings, including proofreading and programming of themes.
+
+                This application is reserved for :
+              </h3>
+              <ul class="list-unstyled mt-5">
+                <li class="py-2">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div class="badge badge-circle badge-success mr-3">
+                        <i class="fa fa-graduation-cap"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h2  class="  mb-0"> Higher education </h2>
+                    </div>
+                  </div>
+                </li>
+                <li class="py-2">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div class="badge badge-circle badge-success mr-3">
+                        <i class="fa fa-building"></i>
+                      </div>
+                    </div>
+                    <div>
+                      <h2 class="mb-0">Research establishment</h2>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </section>
+  
+    <section >
+      <div class="container py-1"> 
+        <div class="h1 text-center " id="pageHeaderTitle">List of Events  </div>
+        <nav>
+        <article class="postcard light blue  " *ngFor="let conference of showconferences" >
+          <a class="postcard__img_link"  >
+            <img class="postcard__img" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblogs.flinders.edu.au%2Ffit%2Fwp-content%2Fuploads%2Fsites%2F19%2F2019%2F10%2FGettyImages-1068618692.jpg&f=1&nofb=1"  alt="Image Title" />
+          </a>
+          <div class="postcard__text t-dark">
+            <h1 class="postcard__title blue"><a>{{conference.shortname}}</a></h1>
+            <div class="postcard__subtitle small">
+              <time datetime="2020-05-25 12:00:00">
+                <i class="fas fa-calendar-alt mr-2"></i>{{conference.from}}
+              </time>
+            </div>
+            <div class="postcard__bar"></div>
+            <div class="postcard__preview-txt">{{conference.description}}</div>
+            <ul class="postcard__tagbox">
+              <li class="tag__item"><i class="fa fa-calendar-o mr-2"></i> {{conference.event}}</li>
+              <li class="tag__item"><i class="fa fa-user-o mr-2"></i> {{conference.people}}</li>
+              <li class="tag__item play blue">
+                <a (click)='registerconf(conference._id)'><i class=" fa fa-sign-in mr-2"></i>Register</a>
+              </li>
+              <li class="tag__item play blue">
+                <a (click)='programconf(conference)'><i class=" fa fa-sign-in mr-2"></i>Submit a program </a>
+              </li>
+            </ul>  
+          </div>   
+        </article>
+      </nav>
+        <br><hr>
+      </div>
+
+    </section>
+    <section class="section section-lg pt-0" id="creat">
+
+      <div class="container">
+        <div class="row justify-content-center text-center mb-lg">
+          <div class="col-lg-8">      <br> <br>
+            <p class="lead text-muted"> " Coming together is a beginning. Keeping together is progress. Working together
+              is success. "
+              <br> <span class="pull-right"> __Henry Ford__</span>
+            </p>
+          </div>
+        </div> 
+        <div class="card bg-gradient-warning shadow-lg border-0">
+          <div class="p-5">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <h1 class="text-white">Create a new event </h1>
+                <p class="lead text-white mt-3"> Creating an event is simple, all you need to do is follow these steps
+                  <br>
+                  <span class="font-weight-bold"> Notice : </span> to create a new event you have to be singned up
+                  !
+                </p>
+              </div>
+              <div class="col-lg-3 ml-lg-auto">
+                <button (click)='createconf()' class="btn btn-lg btn-block btn-white"> + create event</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+           
+      </div>
+    </section>
+  </div>
+</main>
+

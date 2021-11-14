@@ -1,0 +1,28 @@
+<div class="list-group">
+  <div class="list-group-item list-group-item-action active" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h1 class=" text-white mb-1 ">Coordinator </h1>
+      <small>New list <span class="badge badge-warning badge-pill"></span></small>
+    </div>
+    <h2 class="mb-1 text-white">
+      This request is validated by the scientific community, send the depositor an email to inform him!
+    </h2>
+  </div>
+  <nav>
+    <div class="list-group-item list-group-item-action" *ngFor="let prog of mylist  ">
+      <div class="d-flex w-100 justify-content-between">
+        <h1 class="  mb-1 text-warning">{{prog.programname}} </h1>  
+        <button type="button" (click)="sendemail(prog)" class="btn btn-primary btn-md"><i class="fa fa-envelope"></i>
+      </button>
+        </div>
+      <p class="mb-1 ">  
+        {{prog.description}}
+      </p> 
+        <small class="mb-1 text-primary" >{{prog.email}} <span class="badge badge-warning badge-pill"></span></small>
+    </div> 
+    <br>
+    <br>
+    <br>
+
+  </nav>
+</div>

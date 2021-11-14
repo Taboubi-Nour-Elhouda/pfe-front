@@ -1,0 +1,43 @@
+<form [formGroup]="myForm" (ngSubmit)="addprogram()">
+    <h1>Deposit your resume and suggest a program </h1>
+    <div>
+        <div class="form-group  ">
+            <label for="cv">Your resume : </label><br>
+            <input type="file" (change)="upload($event)" />
+        </div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" placeholder="Enter your email " formControlName="email">
+            <div *ngIf="email.touched && email.invalid" >
+                <small *ngIf="email.errors.required" class="text-danger"> * Required field !</small>
+                <small *ngIf="email.errors.email" class="text-danger"> * Invalid email !<br></small>
+              </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="programname">Program name</label>
+            <input type="text" class="form-control" placeholder="(30 characters max) " formControlName="programname">
+            <div *ngIf="programname.touched && programname.invalid">
+                <small *ngIf="programname.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="form-group  ">
+            <label for="description">Description</label>
+            <textarea type="text" class="form-control" placeholder="(summary, description, ...). "
+                formControlName="description"></textarea>
+            <div *ngIf="description.touched && description.invalid">
+                <small *ngIf="description.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+    </div>
+ 
+ 
+
+    <button type="submit" class="btn btn-primary float-right ml-2" [disabled]=" myForm.invalid ">Send request</button>
+    <button type="button" class="btn btn-warning float-right " (click)="close()">Go back</button>
+
+
+</form>

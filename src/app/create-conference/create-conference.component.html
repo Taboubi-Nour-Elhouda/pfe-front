@@ -1,0 +1,114 @@
+<form [formGroup]="myForm" (ngSubmit)="addconference()">
+    <h1>New Event </h1>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="shortname">Shortname</label>
+            <input type="text" class="form-control" placeholder="(15 characters max) " formControlName="shortname">
+            <div *ngIf="shortname.touched && shortname.invalid">
+                <small *ngIf="shortname.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="label">Label</label>
+            <input type="text" class="form-control" placeholder="Specify the title of your conference "
+                formControlName="label">
+            <div *ngIf="label.touched && label.invalid">
+                <small *ngIf="label.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" placeholder="(summary, theme, ...). " formControlName="description">
+            <div *ngIf="description.touched && description.invalid">
+                <small *ngIf="description.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="scientificdomain">Domain</label>
+            <input type="text" class="form-control" placeholder="Scientific discipline"
+                formControlName="scientificdomain">
+            <div *ngIf="scientificdomain.touched && scientificdomain.invalid">
+                <small *ngIf="scientificdomain.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="from">From</label>
+            <input type="datetime-local" class="form-control" formControlName="from">
+            <div *ngIf="from.touched && from.invalid">
+                <small *ngIf="from.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="to">To</label>
+            <input type="datetime-local" class="form-control" formControlName="to">
+            <div *ngIf="to.touched && to.invalid">
+                <small *ngIf="to.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" placeholder="Provide information on the location of your conference"
+                formControlName="location">
+            <div *ngIf="location.touched && location.invalid">
+                <small *ngIf="location.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="organizations">Supporting organizations</label>
+            <input type="text" class="form-control"
+                placeholder="Etablishments managing the conference administratively " formControlName="organizations">
+            <div *ngIf="organizations.touched && organizations.invalid">
+                <small *ngIf="organizations.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="people">People</label>
+            <input type="number" class="form-control" placeholder="Number of people expected" formControlName="people">
+            <div *ngIf="people.touched && people.invalid">
+                <small *ngIf="people.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="event">Event type </label>
+            <input type="text" class="form-control" placeholder="Event type" formControlName="event">
+            <div *ngIf="event.touched && event.invalid">
+                <small *ngIf="event.errors.required" class="text-danger">* Required field !</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="com_scientifique">Scientific community :</label>
+                <input list="srch2" formControlName="com_scientifique" placeholder="Search by name ....">
+                <datalist id="srch2">
+                    <option value="{{user._id}}"   *ngFor="let user of userlist  ">{{user.accountname}}</option>
+                </datalist>
+                <div *ngIf="com_scientifique.touched && com_scientifique.invalid">
+                    <small *ngIf="com_scientifique.errors.required" class="text-danger">* Required field !</small>
+                </div>
+            </div>
+            <div class="form-group col-md-6">    
+                <label for="coordinator">Coordinator :</label><br> 
+                <input   list="srch1"    formControlName="coordinator" placeholder="Search by name ..."> 
+                <datalist id="srch1" >
+                    <option  value="{{user._id}}"   *ngFor="let user of userlist  ">{{user.accountname}}</option>
+                </datalist>
+                <div *ngIf="coordinator.touched && coordinator.invalid">
+                    <small *ngIf="coordinator.errors.required" class="text-danger">* Required field !</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary float-right ml-2" [disabled]=" myForm.invalid ">Add Event</button>
+    <button type="button" class="btn btn-warning float-right " (click)="close()">Go back</button>
+
+
+</form>

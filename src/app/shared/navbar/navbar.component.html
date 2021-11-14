@@ -1,0 +1,106 @@
+<nav id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <div class="container">
+    <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
+      <span class="nav-link-inner--text">E-congress</span>
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">
+               E-congress
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text"> Terms and Conditions </span>
+          </a>
+          <div class="dropdown-menu-xl dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <div
+                class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="ni ni-spaceship"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h4 class="heading text-primary mb-md-1">Agreements to terms </h4>
+                  <p class="description d-none d-md-inline-block mb-0">You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms and Conditions.</p>
+                </div>
+              </div>
+              <div
+                class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                  <i class="ni ni-palette"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h4 class="heading text-primary mb-md-1"> User Registration </h4>
+                  <p class="description d-none d-md-inline-block mb-0">You may be required to register with the Site. You agree to keep your password confidential and will be responsible for all use of your account and password.</p>
+                </div>
+              </div>
+              <div
+                class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                  <i class="ni ni-ui-04"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h4 class="heading text-warning mb-md-1">Prohibited activities</h4>
+                  <p class="description d-none d-md-inline-block mb-0">You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.facebook.com/profile.php?id=100006403419993" target="_blank"
+            data-toggle="tooltip" title="Like us on Facebook">
+            <i class="fa fa-facebook-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Facebook</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.linkedin.com/in/nour-elhouda-taboubi-481459164" target="_blank"
+            data-toggle="tooltip" title="Follow us on Linkedin">
+            <i class="fa fa-linkedin"></i>
+            <span class="nav-link-inner--text d-lg-none">Linkedin</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://twitter.com/TaboubiElhouda?s=09" target="_blank" data-toggle="tooltip"
+            title="Follow us on Twitter">
+            <i class="fa fa-twitter-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Twitter</span>
+          </a>
+        </li>
+        <li></li>
+        <li></li>
+        <li class="nav-item d-none d-lg-block ml-lg-4" >
+          <button  (click)='check()'  
+            class="btn btn-neutral btn-icon">
+            <span class="btn-inner--icon">
+              <i class="fa fa-user mr-2"></i>
+            </span>
+            <span class="nav-link-inner--text">{{BtnName}}</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
