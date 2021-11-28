@@ -7,6 +7,9 @@ import { stringify } from '@angular/compiler/src/util';
 import { HttpClient } from '@angular/common/http';
 import swal from 'sweetalert';
 
+const apis_path= "https://econf-apis.herokuapp.com/"
+
+
 @Component({
   selector: 'app-program',
   templateUrl: './program.component.html',
@@ -92,7 +95,7 @@ export class ProgramComponent implements OnInit {
     const formData = new FormData();
     formData.append('file',this.file);
     console.log(this.file);
-      return this.httpclient.post<any>('http://127.0.0.1:3000/programs/file',formData ).subscribe(
+      return this.httpclient.post<any>(apis_path+'/programs/file',formData ).subscribe(
         (res)=>console.log(res),
         (err)=> console.log(err)        
         

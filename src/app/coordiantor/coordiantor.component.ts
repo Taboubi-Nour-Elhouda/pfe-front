@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpService } from '../http.service';
 import swal from 'sweetalert';
 
+const apis_path= "https://econf-apis.herokuapp.com/"
+
 @Component({
   selector: 'app-coordiantor',
   templateUrl: './coordiantor.component.html',
@@ -34,7 +36,7 @@ export class CoordiantorComponent implements OnInit {
             email: prog.email,
             program: prog.programname
           }
-          this.http.sendEmail("http://127.0.0.1:3000/sendmail", user).subscribe(
+          this.http.sendEmail(apis_path+"/sendmail", user).subscribe(
             data => {
               console.log(data);
                  //validate thaat the email is sent 
