@@ -90,7 +90,6 @@ get coordinator() {
     this.http.getAllUsers().subscribe(
       res => {
         this.userlist = res ;
-        
       },
       err => {
         this.toaster.warning('warning !  ' , 'there is no users !');
@@ -113,7 +112,7 @@ get coordinator() {
       }
     );
   }
-
+  
   close() {
     this.dialogRef.close();
   }
