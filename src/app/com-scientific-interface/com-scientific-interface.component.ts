@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from '../http.service';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-com-scientific-interface',
@@ -38,13 +39,13 @@ export class ComScientificInterfaceComponent implements OnInit {
     );
   }
   delete(id){
-    swal({
+    Swal.fire({
       title: "warning !",
       text: "Did you want to delete this request !",
       icon: "warning",
-      dangerMode: true,
-      buttons: ["Cancel", true]
+      showCancelButton: true,
     })
+  
       .then((willadd) => {
         if (willadd) {
           this.http.delprog(id).subscribe(
@@ -58,19 +59,20 @@ export class ComScientificInterfaceComponent implements OnInit {
           );
 
         } else {
-          swal("the request is safe", {
+          Swal.fire({
+            title: 'Error!',
+            text: 'the request is safe',
             icon: "error",
           });
         }
       });
   }
   valid(id){
-    swal({
+    Swal.fire({
       title: "Info !",
       text: " Once validated, this request will forward to the coordinator  !",
       icon: "success", 
-      dangerMode: false,
-      buttons: ["Cancel", true]
+      showCancelButton: true,
     })
       .then((willadd) => { 
         if (willadd) {
@@ -85,7 +87,9 @@ export class ComScientificInterfaceComponent implements OnInit {
           );
 
         } else {
-          swal("check the request again!", {
+          Swal.fire({
+            title: 'warning!',
+            text: 'check the request again!',
             icon: "warning",
           });
         }

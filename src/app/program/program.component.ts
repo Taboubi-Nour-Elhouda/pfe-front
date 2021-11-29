@@ -5,7 +5,7 @@ import {ToastrService} from 'ngx-toastr';
 import { HttpService } from '../http.service';
 import { stringify } from '@angular/compiler/src/util';
 import { HttpClient } from '@angular/common/http';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 const apis_path= "https://econf-apis.herokuapp.com/"
 
@@ -71,15 +71,17 @@ export class ProgramComponent implements OnInit {
     console.log(this.myForm.value);
     this.http.createProgram(this.myForm.value).subscribe(
       res => {  
-        swal("Request successfully sent! you will receive an email of confirmation soon!", {
+        Swal.fire({
           icon: "success",
+          text: "Request successfully sent! you will receive an email of confirmation soon!",
         }).then((willadd) => {
           if (willadd) {
             this.toaster.success('successfully !  ' , 'Request  sent');
             this.dialogRef.close();
 
           } else {
-            swal("You are not registered for this event", {
+            Swal.fire({
+              text: "You are not registered for this event",
               icon: "error",
             }); 
           }

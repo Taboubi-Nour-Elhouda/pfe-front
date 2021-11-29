@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from '../http.service';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 const apis_path= "https://econf-apis.herokuapp.com/"
 
@@ -22,12 +22,11 @@ export class CoordiantorComponent implements OnInit {
      }   
    } 
    sendemail(prog){
-     swal({
+     Swal.fire({
        title: "Info !",
        text: " You will send an email to the depositor !",
        icon: "success", 
-       dangerMode: false,
-       buttons: ["Cancel", true]
+       showCancelButton:true
      })
        .then((willadd) => { 
          if (willadd) {
@@ -56,7 +55,8 @@ export class CoordiantorComponent implements OnInit {
             }
           );
          } else {
-           swal("check the request again!", {
+           Swal.fire({
+             text:"check the request again!",
              icon: "warning",
            });
          }

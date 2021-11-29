@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-const apis_path= "https://econf-apis.herokuapp.com/"
+const apis_path= "https://econf-apis.herokuapp.com"
 
 @Injectable()
 export class HttpService {

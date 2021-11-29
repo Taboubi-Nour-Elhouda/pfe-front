@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CreateConferenceComponent } from '../create-conference/create-conference.component';
 import { ProgramComponent } from '../program/program.component';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import { ComScientificInterfaceComponent } from '../com-scientific-interface/com-scientific-interface.component';
 import { CoordiantorComponent } from '../coordiantor/coordiantor.component';
 
@@ -134,19 +134,19 @@ export class HomeComponent implements OnInit {
       }, 2000);
     }
     else {
-      swal({
+      Swal.fire({
         title: "Notice !",
         text: "Once registered , you must be present at the event!",
         icon: "warning",
-        dangerMode: true,
-        buttons: ["Cancel", true]
+        showConfirmButton : true
       })
         .then((willadd) => {
           if (willadd) {
             this.http.confregister(id, { participants: this.user._id }).subscribe(
               res => {
-                swal("Success! your registration is done!", {
+                Swal.fire({
                   icon: "success",
+                  text: "Success! your registration is done!",
                 });
               },
               err => {
@@ -155,8 +155,9 @@ export class HomeComponent implements OnInit {
             );
 
           } else {
-            swal("You are not registered for this event", {
+            Swal.fire({
               icon: "error",
+              text: "You are not registered for this event"
             });
           }
         });
